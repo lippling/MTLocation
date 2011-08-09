@@ -55,7 +55,7 @@
         
         // prepare mapView for use with MTLocation
         [mapView sizeToFitTrackingModeFollowWithHeading];
-        [mapView addGoogleBadge];
+        //[mapView addGoogleBadge];
         [mapView addHeadingAngleView];
     }
     
