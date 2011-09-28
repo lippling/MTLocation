@@ -185,6 +185,8 @@
 		} else {
 			self.trackingMode = trackingMode;
 		}
+        
+        [self.delegate locateMeButton:self didChangeTrackingMode:trackingMode];
 	}
 }
 
@@ -301,9 +303,6 @@
     
 	// update to new location status
 	[self setTrackingMode:newTrackingMode animated:YES];
-    
-	// call delegate
-    [self.delegate locateMeButton:self didChangeTrackingMode:newTrackingMode];
 }
 
 // sets a view to a smaller frame, used for animation
