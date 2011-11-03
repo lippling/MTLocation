@@ -14,7 +14,6 @@
 
 #import "MKMapView+MTLocation.h"
 #import "MTLocation.h"
-#import "MTLocationFunctions.h"
 #import <objc/runtime.h>
 
 #define kDefaultGoogleBadgeOriginX 12

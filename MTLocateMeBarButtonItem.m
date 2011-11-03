@@ -16,7 +16,6 @@
 #import "MTLocateMeButton.h"
 #import "MTLocationManager.h"
 #import "MKMapView+MTLocation.h"
-#import <MapKit/MapKit.h>
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -87,11 +86,7 @@
 }
 
 - (void)dealloc {
-    // end listening to location update notifications
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:kMTLocationManagerDidUpdateToLocationFromLocation object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kMTLocationManagerDidUpdateHeading object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kMTLocationManagerDidFailWithError object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kMTLocationManagerDidStopUpdatingServices object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 	[locateMeButton_ release], locateMeButton_ = nil;
 
@@ -108,7 +103,7 @@
 }
 
 - (void)setTrackingMode:(MTUserTrackingMode)trackingMode animated:(BOOL)animated {
-	[self.locateMeButton setTrackingMode:trackingMode animated:YES];
+	[self.locateMeButton setTrackingMode:trackingMode animated:animated];
 }
 
 - (MTUserTrackingMode)trackingMode {
