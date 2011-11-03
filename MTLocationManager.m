@@ -14,7 +14,6 @@
 
 
 #import "MTLocationManager.h"
-#import "MTLocationDefines.h"
 #import "MKMapView+MTLocation.h"
 #import "MTTouchesMovedGestureRecognizer.h"
 
@@ -208,6 +207,7 @@
             // if we are currently receiving heading updates, start updating heading
         case MTUserTrackingModeFollowWithHeading:
             //NSLog(@"start updating heading");
+            [self.locationManager stopUpdatingHeading];
             [self.locationManager startUpdatingLocation];
             [self.locationManager startUpdatingHeading];
             break;
